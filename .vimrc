@@ -1,0 +1,23 @@
+syntax on
+filetype on
+setlocal noswapfile
+set bufhidden=hide
+set nu
+set ruler
+set showmatch
+set cindent
+set tabstop=2
+set autoindent
+set smartindent
+set cursorline
+set shiftwidth=2
+set softtabstop=2
+set nobackup
+set autochdir
+set magic
+set matchtime=2
+set backspace=indent,eol,start
+set cmdheight=1
+set laststatus=2
+set cc=80
+

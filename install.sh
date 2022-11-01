@@ -47,37 +47,15 @@ function config_git() {
 
 function config_zsh() {
   echo "[setup] config zsh with ohmyzsh"
-  git clone git@github.com:ohmyzsh/ohmyzsh.git ~/ohmyzsh
+  git clone https://github.com/ohmyzsh/ohmyzsh.git ~/ohmyzsh
   sh ~/ohmyzsh/tools/install.sh
   echo "[setup] install zsh plugins"
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions \
+    ~/.oh-my-zsh/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
   cp $ZSHRC ~/.zshrc
   source ~/.zshrc
-  echo "[setup] finish!"
-}
-
-function config_c_env() {
-  echo "[setup] config c develop environment"
-  sudo apt-get install build-essential gdb make cmake clang -y
-  echo "[setup] finish!"
-}
-
-function config_java_env() {
-  echo "[setup] config java develop environment"
-  sudo apt-get install openjdk-17-jdk -y
-  echo "[setup] finish!"
-}
-
-function config_goalng_env() {
-  echo "[setup] config golang develop environment"
-  sudo apt-get install golang -y
-  echo "[setup] finish!"
-}
-
-function config_rust_env() {
-  echo "[setup] config rust develop environment"
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   echo "[setup] finish!"
 }
 
@@ -87,10 +65,6 @@ function main() {
   config_neovim
   config_git
   config_zsh
-  config_c_env
-  config_java_env
-  config_golang_env
-  config_rust_env
 }
 
 main

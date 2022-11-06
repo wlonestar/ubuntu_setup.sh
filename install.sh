@@ -59,12 +59,30 @@ function config_zsh() {
   echo "[setup (5/5)] finish!"
 }
 
+function extra() {
+  echo "c/c++ env"
+  sudo apt-get install build-essential gdb make cmake -y
+  echo "java env"
+  sudo wget \
+    https://download.java.net/openjdk/jdk17/ri/openjdk-17+35_linux-x64_bin.tar.gz \
+    -P /opt
+  sudo mkdir /opt/openjdk17
+  sudo tar xvf /opt/openjdk-17+35_linux-x64_bin.tar.gz -C /opt/openjdk17 --strip-components 1
+  echo "export JAVA_HOME=/opt/openjdk17" >> ~/.zshrc
+  echo "export PATH=$PATH:/$JAVA_HOME/bin" >> ~/.zshrc
+  echo "python3 env"
+  sudo apt-get install python3-pip
+  echo "rust env"
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+}
+
 function main() {
   change_source
   install_utils
   config_neovim
   config_git
   config_zsh
+  # extra
 }
 
 main
